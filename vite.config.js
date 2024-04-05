@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
 
-import pluginRewriteAll from 'vite-plugin-rewrite-all';
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
