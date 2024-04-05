@@ -46,7 +46,7 @@ import FacebookIcon from '../src/components/icons/IconFacebook.vue'
 }
 
 .icon {
-  width: 35px;
+  width: 25px;
   height: auto;
   color: white;
   opacity: 0.5;
