@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anmeldung und Suche - XSS Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+        .search-form {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+        .search-form input[type="search"] {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .search-form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .search-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .login-form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+        .login-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        .login-form input[type="text"],
+        .login-form input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .login-form input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .login-form input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<form class="search-form" action="" method="GET">
+    <input type="search" id="search" name="search" placeholder="Suchbegriff eingeben">
+    <input type="submit" value="Suchen">
+</form>
+
+<div class="login-form">
+    <h1>Anmeldung</h1>
+    <form action="" method="GET">
+        <label for="username">Benutzername:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Passwort:</label>
+        <input type="password" id="password" name="password" required>
+
+        <input type="submit" value="Anmelden">
+    </form>
+</div>
+
+<div class="results">
+    <h2>Suchergebnisse für: <span id="search-query"></span></h2>
+</div>
+
+<script>
+    // Den Suchbegriff aus der URL auslesen und anzeigen
+    var urlParams = new URLSearchParams(window.location.search);
+    var searchQuery = urlParams.get('search');
+
+    // Den Suchbegriff direkt einbinden, ohne zu sanitieren
+    if (searchQuery) {
+        document.getElementById('search-query').innerHTML = searchQuery;
+    } else {
+        document.getElementById('search-query').innerHTML = 'keine Suche durchgeführt';
+    }
+</script>
+</body>
+</html>
