@@ -10,27 +10,24 @@ import FacebookIcon from '../src/components/icons/IconFacebook.vue'
   <div class="wrapper">
     <div class="info">
       <h1> Hi! I'm Davin </h1>
-      <p> I'm a Web Developer currently studying in Bielefeld, Germany.</p>
-      <p> Feel free to contact me on my socials for interesting projects, questions or more :) </p>
+      <p> I'm a web developer currently studying in Bielefeld, Germany.</p>
+      <p>Feel free to connect with me on my social platforms for collaborations, inquiries, or exciting opportunities! :)</p>
     </div>
 
     <div class="contact-wrapper">
       <img class="image-davin" src="/src/assets/Davin-Thiemann-1.jpg" alt="Davin Thiemann">
       <h3> Davin Thiemann </h3>
-      <p> Frontend Developer and Student </p>
+      <p>Frontend Web Developer | Student at <a href="https://www.hdnet.de/"> HDNET GmbH & Co. KG </a></p>
 
       <div class="socials">
-        <a href="https://www.instagram.com/davin.thmn/">
-          <InstagramIcon class="icon" />
+        <a href="https://www.linkedin.com/in/davin-thiemann/">
+          <LinkedInIcon class="icon" />
         </a>
         <a href="https://github.com/davinthiemann">
           <GithubIcon class="icon" />
         </a>
-        <a href="#">
-          <LinkedInIcon class="icon" />
-        </a>
-        <a href="#">
-          <FacebookIcon class="icon" />
+        <a href="https://www.instagram.com/davin.thmn/">
+          <InstagramIcon class="icon" />
         </a>
       </div>
     </div>
@@ -42,7 +39,7 @@ import FacebookIcon from '../src/components/icons/IconFacebook.vue'
 .socials {
   margin-top: 1rem;
   display: flex;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .icon {
@@ -99,5 +96,13 @@ p {
   margin-bottom: 1rem;
   box-shadow: 0 8px 24px 1px black;
   opacity: 0.7;
+}
+
+a {
+  color: #a2a2a2;
+
+  &:hover {
+    color: white;
+  }
 }
 </style>
